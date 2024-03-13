@@ -1,10 +1,8 @@
-# React_project
+import conf from '../conf.js';
 
-## Auth Snippet : You can use any where you want to import Authorization...
+import {Client, Account, ID} from 'appwrite';
 
-```javascript
-
- export class AuthService {
+export class AuthService {
     client = new Client();
     account;
 
@@ -63,7 +61,8 @@
         }
         
     }
-}
-```
 
- 
+
+
+}
+
