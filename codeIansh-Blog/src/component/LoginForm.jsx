@@ -14,6 +14,7 @@ function LoginForm() {
     const dispatch = useDispatch()
 
     const Clicklogin = async(data) => {
+        setError("")
         try {
             const loginSession = await authService.UserLogin(data)
             if(loginSession){
@@ -36,6 +37,7 @@ function LoginForm() {
             </div>
             <h2 className='text-center text-2xl leading-tight font-bold'>Sign in to your account</h2>
             <p className='mt-2 text-center text-base text-black/60'>
+                    Dont&apos;t have any account?&nbsp;
                 <Link to='/signup' className='font-medium text-primary transition-all duration-200 hover:underline'>
                     Sign Up
                 </Link>
@@ -47,7 +49,33 @@ function LoginForm() {
 
 {/* here handleSubmit itself a builtIn function you just have to pass your method in it...*/}
             <form onSubmit={handleSubmit(Clicklogin)} className='mt-8'>         
-                
+                <div className='space-y-5'>
+                    <Input 
+                    label = "Email: "
+                    placeholder="Enter your email"
+                    type="email"
+                    {...register("email", {
+                        required:true,
+                        validate:{
+                            matchPattern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) 
+                            || "Email must be a valid address"
+                        }
+                    })}
+                    />
+                    <Input 
+                    label = "Password: "
+                    placeholder="Enter your password"
+                    type="password"
+                    {...register("password", {
+                        required:true
+                    })}
+                    />
+
+                        <Button type='submit' className='w-full'>
+                            Sign in
+                        </Button>
+                    
+                </div>
 
             </form>
         </div>
