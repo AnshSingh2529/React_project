@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         {
             path: "/login",
             element: (
-                <Protected authentication={false}>
+                <Protected  authentication={false}>
                     <LoginPage />
                 </Protected>
             ),
