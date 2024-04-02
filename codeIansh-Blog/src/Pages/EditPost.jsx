@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
-import storeService from '../../appwrite/storage';
+import storeService from '../appwrite/storage';
 import PostForm from '../Forms/PostForm';
-import {Container} from '../index';
+import {Container} from '.././component/index';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function EditPost() {

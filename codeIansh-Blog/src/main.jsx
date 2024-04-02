@@ -4,20 +4,20 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import store from './store/store.js';
-import AddPosts from './component/Pages/AddPosts.jsx';
-import AllPosts from './component/Pages/AllPosts.jsx';
-import EditPost from './component/Pages/EditPost.jsx';
-import HomePage from './component/Pages/HomePage.jsx';
-import LoginPage from './component/Pages/LoginPage.jsx';
-import SignUpPage from './component/Pages/SignUpPage.jsx';
-import PostPage from './component/Pages/PostPage.jsx';
+import AddPosts from './Pages/AddPosts.jsx'
+import AllPosts from './Pages/AllPosts.jsx';
+import EditPost from './Pages/EditPost.jsx';
+import HomePage from './Pages/HomePage.jsx';
+import SignUpPage from './Pages/SignUpPage.jsx';
+import PostPage from './Pages/PostPage.jsx';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Protected from './component/Protected.jsx'
+import Protected from './component/Protected.jsx';
 
+import LoginForm from './Forms/LoginForm.jsx'
 
 
 const router = createBrowserRouter([
-  {
+  { 
     path: "/",
     element: <App />,
     children: [
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             path: "/login",
             element: (
                 <Protected  authentication={false}>
-                    <LoginPage />
+                    <LoginForm />
                 </Protected>
             ),
         },

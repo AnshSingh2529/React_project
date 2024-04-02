@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
-import storeService from '../../appwrite/storage';
-import PostCards from '../Forms/PostCards'
-import {Container} from '../index';
+import storeService from '../appwrite/storage';
+import PostCards from '../Forms/PostCards';
+import {Container} from '.././component/index';
 
 function AllPosts() {
 

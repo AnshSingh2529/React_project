@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import {useForm} from 'react-hook-form';
-import {Button, Input, Select, RTE} from '../index';
-import storeService from '../../appwrite/storage';
+import {Button, Input, Select, RTE} from '.././component/index';
+import storeService from '../appwrite/storage';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
