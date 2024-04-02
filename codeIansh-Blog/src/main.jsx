@@ -12,6 +12,7 @@ import LoginPage from './component/Pages/LoginPage.jsx';
 import SignUpPage from './component/Pages/SignUpPage.jsx';
 import PostPage from './component/Pages/PostPage.jsx';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Protected from './component/Protected.jsx'
 
 
 

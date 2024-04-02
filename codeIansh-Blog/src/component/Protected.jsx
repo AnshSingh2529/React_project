@@ -1,13 +1,12 @@
-import { autoBatchEnhancer } from '@reduxjs/toolkit';
 import React,{useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Protected({children, authentication = true}) {
 
     const [loader, setLoader] = useState(true);
-    const navigate = useNavigation();
+    const navigate = useNavigate();
     const authStatus = useSelector( (state) => state.auth.status);
 
     useEffect( () => {

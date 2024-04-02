@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import storeService from '../../appwrite/storage';
-import Container from '../index';
+import {Container} from '../index';
 import PostCards from '../Forms/PostCards';
 
 

@@ -1,9 +1,9 @@
-import React,{useDebugValue, useState} from 'react';
+import React,{useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import login from '../../store/authSlice';
 import {Button, Logo, Input } from '../index'
-import { UseDispatch, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import authService from '../../appwrite/auth'
 
 
