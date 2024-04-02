@@ -11,18 +11,19 @@ function PostForm({post}) {
     const {register, handleSubmit, watch, setValue, getValues, control} = useForm(
       {
       defaultValues:{
-        title:post?.title || "",
-        slug:post?.slug || "",
-        content:post?.content || "",
-        status:post?.status || "active"
+        title: post?.title || "",
+        slug: post?.slug || "",
+        content: post?.content || "",
+        status: post?.status || "active"
         
       }});
+
     const navigate = useNavigate();
     const userData = useSelector( (state) => state.auth.userData);
 
     const submit = async(data) => {
       if(post){
-        const file = data.image[0] ? storeService.uploadFile(data.image[0]) : null;
+        const file = data.image[0] ?  await storeService.uploadFile(data.image[0]) : null;
 
         if(file){
           storeService.deleteFile(post.featuredImage)
@@ -54,7 +55,7 @@ function PostForm({post}) {
           }
         }
       }
-    }
+    };
 
     const slugTransform = useCallback( (value) => {
       if(value && typeof value == 'string')
@@ -75,7 +76,7 @@ function PostForm({post}) {
           setValue('slug', slugTransform(value.title, {shouldValidate:true}));
         }
       })
-
+        return () => subscribtion.unsubscribe();
 
     }, [watch, setValue, slugTransform])
 
@@ -87,16 +88,16 @@ function PostForm({post}) {
         label='Title'
         placeholder='Title'
         className='mb-4'
-        {...register('title',{required:true})}
+        {...register('title',{required: true})}
         />
         <Input 
-        label='Slug'
+        label='Slug :'
         placeholder='Slug'
         className='mb-4'
-        {...register('slug',{required:true})}
+        {...register('slug',{required: true})}
 
-        onInput={(e)=>{
-          setValue('slug', slugTransform(e.currentTarget.value),{shouldValidate:true})
+        onInput= { (e) => {
+          setValue('slug', slugTransform(e.currentTarget.value), {shouldValidate:true})
         }}
         />
 
@@ -112,8 +113,8 @@ function PostForm({post}) {
         label='FeaturedImage:'
         type = 'file'
         className='mb-4'
-        accept='image/jpg image/jpeg image/png image/gif'
-        {...register('featuredImage',{required: !post})}
+        accept='image/jpg, image/jpeg, image/png, image/gif'
+        {...register('image', {required: !post})}
         />
 
         {post && (
@@ -128,9 +129,9 @@ function PostForm({post}) {
 
         <Select 
         label='Status'
-        options ={['Active', 'inActive']}
+        options ={['active', 'inactive']}
         className='mb-4'
-         {...register('status',{required:true})}
+         {...register('status',{required: true})}
         />
         <Button 
         type='submit'

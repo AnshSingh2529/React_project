@@ -18,8 +18,8 @@ function SignUpForm() {
         try {
            const userData = await authService.createAccount(info)
            if(userData){
-            const currentInfo = await authService.getCurrentUser()
-            if(currentInfo) dispatch(login(currentInfo));
+            const userData = await authService.getCurrentUser()
+            if(userData) dispatch(login(userData));
             navigate("/")
            }
         } catch (error) {
@@ -28,7 +28,7 @@ function SignUpForm() {
     }
   return (
     <div className='flex item-center justify-center'>
-        <div className='mx-auto max-w-lg w-full bg-gray-100 rounded-xl p-10 border border-black/10'>
+        <div className={`mx-auto max-w-lg w-full bg-gray-100 rounded-xl p-10 border border-black/10`}>
         <div className='mb-2 flex justify-center'>
                 <span className='inline-block w-full max-w-[100px]'>
                     <Logo width="100%" />
@@ -37,7 +37,9 @@ function SignUpForm() {
         <h2 className='text-center text-2xl leading-tight font-bold'>Sign up to create new Account</h2>
             <p className='mt-2 text-center text-base text-black/60'>
                     Already have an account?&nbsp;
-                <Link to='/signup' className='font-medium text-primary transition-all duration-200 hover:underline'>
+                <Link
+                 to='/signup' 
+                 className='font-medium text-primary transition-all duration-200 hover:underline'>
                     Sign In
                 </Link>
             </p>
@@ -48,7 +50,7 @@ function SignUpForm() {
                 <div className='space-y-5'>
                     <Input  
                     label = "Full Name:"
-                    placeholder="   Enter your name"
+                    placeholder="Enter your name"
                     {...register("name",{
                         required:true
                     })}
@@ -79,7 +81,7 @@ function SignUpForm() {
                     type='submit'
                     className='w-full'
                     >
-                        create Account
+                        Create Account
                     </Button>
                 </div>
 

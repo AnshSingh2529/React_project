@@ -11,7 +11,7 @@ function LoginForm() {
     const navigate = useNavigate();
     const {register, handleSubmit} = useForm();
     const [error, setError] = useState("");
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const Clicklogin = async(data) => {
         setError("")
@@ -29,7 +29,7 @@ function LoginForm() {
 
   return (
     <div className='flex items-center justify-center w-full'>
-        <div className='mx-auto max-w-lg w-full bg-gray-100 rounded-xl p-10 border border-black/10'>
+        <div className={`mx-auto max-w-lg w-full bg-gray-100 rounded-xl p-10 border border-black/10`}>
             <div className='mb-2 flex justify-center'>
                 <span className='inline-block w-full max-w-[100px]'>
                     <Logo width="100%" />
@@ -56,7 +56,7 @@ function LoginForm() {
                     type="email"
                     {...register("email", {
                         required:true,
-                        validate:{
+                        validate: {
                             matchPattern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) 
                             || "Email must be a valid address"
                         }
@@ -71,7 +71,9 @@ function LoginForm() {
                     })}
                     />
 
-                        <Button type='submit' className='w-full'>
+                        <Button 
+                        type='submit' 
+                        className='w-full'>
                             Sign in
                         </Button>
                     

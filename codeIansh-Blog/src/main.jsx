@@ -11,7 +11,7 @@ import HomePage from './Pages/HomePage.jsx';
 import SignUpPage from './Pages/SignUpPage.jsx';
 import PostPage from './Pages/PostPage.jsx';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Protected from './component/Protected.jsx';
+import AuthLayout from './component/AuthLayout.jsx';
 
 import LoginForm from './Forms/LoginForm.jsx'
 
@@ -28,44 +28,44 @@ const router = createBrowserRouter([
         {
             path: "/login",
             element: (
-                <Protected  authentication={false}>
+                <AuthLayout  authentication={false}>
                     <LoginForm />
-                </Protected>
+                </AuthLayout>
             ),
         },
         {
             path: "/signup",
             element: (
-                <Protected authentication={false}>
+                <AuthLayout authentication={false}>
                     <SignUpPage />
-                </Protected>
+                </AuthLayout>
             ),
         },
         {
             path: "/all-posts",
             element: (
-                <Protected authentication>
+                <AuthLayout authentication>
                     {" "}
                     <AllPosts />
-                </Protected>
+                </AuthLayout>
             ),
         },
         {
             path: "/add-post",
             element: (
-                <Protected authentication>
+                <AuthLayout authentication>
                     {" "}
                     <AddPosts />
-                </Protected>
+                </AuthLayout>
             ),
         },
         {
             path: "/edit-post/:slug",
             element: (
-                <Protected authentication>
+                <AuthLayout authentication>
                     {" "}
                     <EditPost />
-                </Protected>
+                </AuthLayout>
             ),
         },
         {
