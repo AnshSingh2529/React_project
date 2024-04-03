@@ -16,12 +16,14 @@ function PostForm({post}) {
         content: post?.content || "",
         status: post?.status || "active"
         
-      }});
+      }
+    });
 
     const navigate = useNavigate();
-    const userData = useSelector( (state) => state.auth.userData);
+    const userData = useSelector( (state) => state.userData);
 
     const submit = async(data) => {
+      try{
       if(post){
         const file = data.image[0] ?  await storeService.uploadFile(data.image[0]) : null;
 
@@ -32,12 +34,13 @@ function PostForm({post}) {
           post.$id, 
           {
             ...data,
-            featuredImage: file ? file.$id :undefined
+            featuredImage: file ? file.$id : undefined
+
           }
-        )
+        );
 
         if(dbPost){
-          navigate(`/post/post.${dbPost.$id}`)
+          navigate(`/post/${dbPost.$id}`)
         }
       } else{
         const file = await storeService.uploadFile(data.image[0]);
@@ -55,6 +58,9 @@ function PostForm({post}) {
           }
         }
       }
+    } catch (error){
+      console.log("Error in submit PostForm.jsx ", error);
+    }
     };
 
     const slugTransform = useCallback( (value) => {
@@ -73,7 +79,7 @@ function PostForm({post}) {
 
       const subscribtion = watch( (value, {name}) => {
         if(name === 'title'){
-          setValue('slug', slugTransform(value.title, {shouldValidate:true}));
+          setValue('slug', slugTransform(value.title, {shouldValidate: true}));
         }
       })
         return () => subscribtion.unsubscribe();
@@ -97,12 +103,12 @@ function PostForm({post}) {
         {...register('slug',{required: true})}
 
         onInput= { (e) => {
-          setValue('slug', slugTransform(e.currentTarget.value), {shouldValidate:true})
+          setValue('slug', slugTransform(e.currentTarget.value), {shouldValidate: true})
         }}
         />
 
         <RTE 
-          label="Content:"
+          label="Content :"
           name='content'
           control={control}
           defaultValue={getValues('content')}

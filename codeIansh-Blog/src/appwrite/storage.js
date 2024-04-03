@@ -45,19 +45,14 @@ export class StorageService{
 
     async deletePost(slug){
         try {
-            const deleted = await this.databases.deleteDocument(
+             await this.databases.deleteDocument(
                 conf.appwriteDatabase_id, 
                 conf.appwriteCollection_id, 
                 slug,
                 )
-                if(!deleted){
-                    return false;
-                } else{
-                    return true;
-                }
+                return true;
         } catch (error) {
             throw error;
-
         }
     }
 
@@ -80,7 +75,7 @@ export class StorageService{
         }
     }
 
-    async getPosts(queries = [Query.equal("status", 'active')]){
+    async getPosts(queries = [Query.equal('status', 'active')]){
         try {
             const Posts = await this.databases.listDocuments(
                 conf.appwriteDatabase_id,
@@ -121,31 +116,28 @@ export class StorageService{
 
     async deleteFile(fileId){
         try {
-            const file = await this.bucket.deleteFile(
+           await this.bucket.deleteFile(
                 conf.appwriteBucket_id,
                 fileId
                 )
-                if(!file){
-                    return false;
-                } else{
-                    return true;
-                }
-                
+
         } catch (error) {
             throw error;
+            
         }
     }
 
     getfilePreview(fileId){
-        const getfile = this.bucket.getFilePreview(
+
+      try {
+        return this.bucket.getFilePreview(
             conf.appwriteBucket_id,
             fileId
-        )    
-        if(getfile){
-            return getfile;
-        } else{
-            return null;
-        }
+        )
+      } catch (error) {
+        console.log('Appwrite service :: getFilePreview :: error', error);
+        return false;
+      }
     }
 }
 

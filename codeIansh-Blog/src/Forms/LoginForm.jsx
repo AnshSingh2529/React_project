@@ -16,10 +16,12 @@ function LoginForm() {
     const Clicklogin = async(data) => {
         setError("")
         try {
-            const loginSession = await authService.UserLogin(data)
+            const loginSession = await authService.UserLogin(data.email, data.password)
             if(loginSession){
-                const userData = authService.getCurrentUser()
-                if(userData) dispatch(login(userData));
+                const userData = authService.getCurrentUser();
+                if(userData) {
+                    dispatch(login(userData));
+                }
                 navigate("/");
             }
         } catch (error) {
@@ -29,7 +31,7 @@ function LoginForm() {
 
   return (
     <div className='flex items-center justify-center w-full'>
-        <div className={`mx-auto max-w-lg w-full bg-gray-100 rounded-xl p-10 border border-black/10`}>
+        <div className='mx-auto max-w-lg w-full bg-gray-100 rounded-xl p-10 border border-black/10'>
             <div className='mb-2 flex justify-center'>
                 <span className='inline-block w-full max-w-[100px]'>
                     <Logo width="100%" />

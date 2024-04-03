@@ -12,8 +12,7 @@ import SignUpPage from './Pages/SignUpPage.jsx';
 import PostPage from './Pages/PostPage.jsx';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AuthLayout from './component/AuthLayout.jsx';
-
-import LoginForm from './Forms/LoginForm.jsx'
+import LoginPage from './Pages/LoginPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,8 +27,8 @@ const router = createBrowserRouter([
         {
             path: "/login",
             element: (
-                <AuthLayout  authentication={false}>
-                    <LoginForm />
+                <AuthLayout  authentication = {false}>
+                    <LoginPage />
                 </AuthLayout>
             ),
         },
@@ -70,7 +69,9 @@ const router = createBrowserRouter([
         },
         {
             path: "/post/:slug",
-            element: <PostPage />,
+            element: <AuthLayout>
+                <PostPage />
+            </AuthLayout>,
         },
     ],
 },

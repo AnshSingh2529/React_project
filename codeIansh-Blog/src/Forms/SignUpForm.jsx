@@ -19,8 +19,10 @@ function SignUpForm() {
            const userData = await authService.createAccount(info)
            if(userData){
             const userData = await authService.getCurrentUser()
-            if(userData) dispatch(login(userData));
-            navigate("/")
+           if(userData){
+            dispatch(login(userData))
+            navigate('/login')
+           }
            }
         } catch (error) {
             setError(error.message)
@@ -84,7 +86,6 @@ function SignUpForm() {
                         Create Account
                     </Button>
                 </div>
-
             </form>
         </div>
     </div>

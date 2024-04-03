@@ -29,7 +29,7 @@ function App() {
 
     }, [])
 
-  return !loader ? (
+  return !loader ? 
 
    <>
     <div className="text-[#ffc300]"> 
@@ -50,7 +50,7 @@ function App() {
     <Footer />
     </div>
    </>
-  ) : null
+   : <h1>Loading...</h1>
 }
 
 export default App
