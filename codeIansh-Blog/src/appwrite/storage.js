@@ -80,7 +80,7 @@ export class StorageService{
         }
     }
 
-    async getPosts(queries = [Query.equal("status", "active")]){
+    async getPosts(queries = [Query.equal("status", 'active')]){
         try {
             const Posts = await this.databases.listDocuments(
                 conf.appwriteDatabase_id,
@@ -103,14 +103,14 @@ export class StorageService{
 
     async uploadFile(file){
         try {
-            const file = await this.bucket.createFile(
+            const files = await this.bucket.createFile(
                 conf.appwriteBucket_id,
                 ID.unique(),
                 file,
                 )
 
-                if(file){
-                    return file;
+                if(files){
+                    return files;
                 }else{
                     return null;
                 }

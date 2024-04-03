@@ -8,7 +8,7 @@ function HomePage() {
     const [posts, setPosts] = useState([]);
 
     useEffect( () => {
-        storeService.getPosts()
+        storeService.getPosts([])
         .then( (posts) => {
             if(posts){
                 setPosts(posts.documents);

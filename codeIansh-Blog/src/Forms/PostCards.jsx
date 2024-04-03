@@ -1,5 +1,5 @@
 import React from 'react';
-import storeService from '../appwrite/storage';
+import storeService from '../appwrite/storage'
 import {Link} from 'react-router-dom';
 
 

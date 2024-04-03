@@ -18,8 +18,8 @@ function LoginForm() {
         try {
             const loginSession = await authService.UserLogin(data)
             if(loginSession){
-                const UserData = authService.getCurrentUser()
-                if(UserData) dispatch(login(UserData));
+                const userData = authService.getCurrentUser()
+                if(userData) dispatch(login(userData));
                 navigate("/");
             }
         } catch (error) {
@@ -37,7 +37,7 @@ function LoginForm() {
             </div>
             <h2 className='text-center text-2xl leading-tight font-bold'>Sign in to your account</h2>
             <p className='mt-2 text-center text-base text-black/60'>
-                    Dont&apos;t have any account?&nbsp;
+                    Don&apos;t have any account?&nbsp;
                 <Link to='/signup' className='font-medium text-primary transition-all duration-200 hover:underline'>
                     Sign Up
                 </Link>
