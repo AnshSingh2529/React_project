@@ -20,7 +20,7 @@ export default function EditPost() {
       })
 
     } else{
-      navigate('/');
+      navigate('/codeIansh/');
     }
 
   }, [slug, navigate])
@@ -30,7 +30,7 @@ export default function EditPost() {
     <div className='py-8'>
 
       <Container>
-        <PostForm post={post} />
+        <PostForm {...post} />
       </Container>
       
     </div>

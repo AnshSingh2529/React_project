@@ -21,7 +21,7 @@ function LoginForm() {
                 const userData = authService.getCurrentUser();
                 if(userData) {
                     dispatch(login(userData));
-                    navigate("/");
+                    navigate("/codeIansh/");
                 }
                 
             }
@@ -41,7 +41,7 @@ function LoginForm() {
             <h2 className='text-center text-2xl leading-tight font-bold'>Sign in to your account</h2>
             <p className='mt-2 text-center text-base text-black/60'>
                     Don&apos;t have any account?&nbsp;
-                <Link to='/signup' className='font-medium text-primary transition-all duration-200 hover:underline'>
+                <Link to='/codeIansh/signup' className='font-medium text-primary transition-all duration-200 hover:underline'>
                     Sign Up
                 </Link>
             </p>

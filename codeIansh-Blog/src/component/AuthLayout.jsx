@@ -20,9 +20,9 @@ export default function AuthLayout({children, authentication = true}) {
         //let authValue = authStatus === true ? true : false
 
         if(authentication && authStatus !== authentication){
-            navigate("/login")
+            navigate("/codeIansh/login")
         } else if(!authentication && authStatus !== authentication){
-            navigate("/")
+            navigate("/codeIansh/")
         }
         setLoader(false)
     }, [authStatus, navigate, authentication])

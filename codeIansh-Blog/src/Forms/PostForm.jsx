@@ -40,7 +40,7 @@ function PostForm({post}) {
         );
 
         if(dbPost){
-          navigate(`/post/${dbPost.$id}`)
+          navigate(`/codeIansh/post/${dbPost.$id}`)
         }
       } else{
         const file = await storeService.uploadFile(data.image[0]);
@@ -49,12 +49,13 @@ function PostForm({post}) {
           const fileId = file.$id;
           data.featuredImage = fileId;
 
-         const newdbPost =  await storeService.createPost({
+         const dbPost =  await storeService.createPost({
             ...data,
             userId: userData.$id,
           })
-          if(newdbPost){
-            navigate(`/post/${newdbPost.$id}`);
+
+          if(dbPost){
+            navigate(`/codeIansh/post/${dbPost.$id}`);
           }
         }
       }
@@ -64,14 +65,15 @@ function PostForm({post}) {
     };
 
     const slugTransform = useCallback( (value) => {
-      if(value && typeof value == 'string')
+      if(value && typeof value === 'string')
         return value
                     .trim()
                     .toLowerCase()
-                    .replace(/^[a-zA-Z\d\s]+/g, '-')
-                    .replace(/\s/g, '-')
+                    .replace(/[^a-zA-Z\d\s]+/g, '-')
+                    .replace(/\s/g, '-');
 
-        return '';
+          return ""
+
       
     }, [])
 
@@ -79,10 +81,10 @@ function PostForm({post}) {
 
       const subscribtion = watch( (value, {name}) => {
         if(name === 'title'){
-          setValue('slug', slugTransform(value.title, {shouldValidate: true}));
+          setValue('slug', slugTransform(value.title), {shouldValidate: true})  ;
         }
       })
-        return () => subscribtion.unsubscribe();
+        return () => subscribtion.unsubscribe() ;
 
     }, [watch, setValue, slugTransform])
 
@@ -91,7 +93,7 @@ function PostForm({post}) {
 
       <div className='w-2/3 px-2'>
         <Input 
-        label='Title'
+        label='Title :'
         placeholder='Title'
         className='mb-4'
         {...register('title',{required: true})}

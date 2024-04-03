@@ -17,15 +17,15 @@ import LoginPage from './Pages/LoginPage.jsx';
 
 const router = createBrowserRouter([
   { 
-    path: "/",
+    path: "/codeIansh/",
     element: <App />,
     children: [
         {
-            path: "/",
+            path: "/codeIansh/",
             element: <HomePage />,
         },
         {
-            path: "/login",
+            path: "/codeIansh/login",
             element: (
                 <AuthLayout  authentication = {false}>
                     <LoginPage />
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/signup",
+            path: "/codeIansh/signup",
             element: (
                 <AuthLayout authentication={false}>
                     <SignUpPage />
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/all-posts",
+            path: "/codeIansh/all-posts",
             element: (
                 <AuthLayout authentication>
                     {" "}
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/add-post",
+            path: "/codeIansh/add-posts",
             element: (
                 <AuthLayout authentication>
                     {" "}
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/edit-post/:slug",
+            path: "/codeIansh/edit-post/:slug",
             element: (
                 <AuthLayout authentication>
                     {" "}
@@ -68,9 +68,9 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/post/:slug",
+            path: "/codeIansh/post/:slug",
             element: (
-            <AuthLayout>
+            <AuthLayout authentication>
                 <PostPage />
             </AuthLayout>
             ),

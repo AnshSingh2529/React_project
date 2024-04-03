@@ -19,9 +19,9 @@ export default function PostPage() {
             storeService.getPost(slug)
             .then((post) => {
                 if (post) setPost(post);
-                else navigate("/");
+                else navigate("/codeIansh/");
             });
-        } else navigate("/");
+        } else navigate("/codeIansh/");
     }, [slug, navigate]);
 
     const deletePost = () => {
@@ -29,7 +29,7 @@ export default function PostPage() {
         .then((status) => {
             if (status) {
                 storeService.deleteFile(post.featuredImage);
-                navigate("/");
+                navigate("/codeIansh/");
             }
         });
     };
@@ -46,7 +46,7 @@ export default function PostPage() {
 
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
-                            <Link to={`/edit-post/${post.$id}`}>
+                            <Link to={`/codeIansh/edit-post/${post.$id}`}>
                                 <Button bgColor="bg-green-500" className="mr-3">
                                     Edit
                                 </Button>

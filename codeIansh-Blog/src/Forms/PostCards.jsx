@@ -11,7 +11,7 @@ function PostCards({
 
 
   return (
-    <Link to={`/post/${$id}`}>
+    <Link to={`/codeIansh/post/${$id}`}>
         <div className='w-full bg-black rounded-xl p-4'>
         <div className='w-full justify-center mb-4'>
             <img src={storeService.getfilePreview(featuredImage)} alt={title} className='rounded-xl' />
