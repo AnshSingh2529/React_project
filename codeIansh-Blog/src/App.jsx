@@ -50,7 +50,7 @@ function App() {
     <Footer />
     </div>
    </>
-   : <h1>Loading...</h1>
+   : null;
 }
 
 export default App
