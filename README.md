@@ -1,1 +1,3 @@
-# React MegaBlog Project
+# React + Vite
+
+`codeIansh-Blog` 
