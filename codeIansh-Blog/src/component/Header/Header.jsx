@@ -50,11 +50,11 @@ function Header() {
 
     <Container>
       <nav className='flex'>
-        <div className='mr-4'>
+        
           <Link to='/'>
-            <Logo />
+            <Logo  />
           </Link>
-        </div>
+       
 
         <ul className='flex ml-auto'>
           {navItems.map( (items) => 

@@ -40,8 +40,8 @@ function LoginForm() {
         <div className=' flex items-center justify-center w-full'>
             <div className=' mx-auto rounded-xl shadow-2xl w-full max-w-lg bg-gray-100 p-10 border-black/10'>
                 <div className=' mb-2 flex justify-center '>
-                    <span className=' inline-block w-full max-w-[100px]'>
-                        <Logo width='100%' />
+                    <span>
+                        <Logo />
                     </span>
                 </div>
                 <h2 className=' text-center text-2xl font-bold leading-light'>Sign in to your Account</h2>

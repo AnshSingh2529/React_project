@@ -5,7 +5,6 @@ import PostCards from '../Forms/PostCards';
 import Loading from '../component/Loading';
 
 
-
 function HomePage() {
     const [posts, setPosts] = useState([]);
 
@@ -19,16 +18,20 @@ function HomePage() {
     },[])
 
     if(posts.length === 0){
-        return (
-            <div className='w-full text-center py-8 mt-4'>
+        return  <Loading /> && (
+         
+            <div className='w-full text-center flex justify-center  min-h-screen'>
                 <Container>
-                    <div className='flex flex-wrap'>
-                        <span className=' inline-block  p-2'>
-                            <h1 className='text-4xl font-bold hover:bg-black/40'><Loading /></h1>
+                    <div className='flex'>
+                        <span className='inline p-10'>
+                            <h1 className='text-9xl font-serif border-black border-b-2'>WELCOME</h1>
+                            <h1 className='text-4xl font-bold mt-20'>Please Login to see Posts!</h1>
                         </span>
+                        
                     </div>
+
                 </Container>
-            </div>
+         </div> 
         )
     }
   return (
