@@ -3,10 +3,12 @@ import storeService from '../appwrite/storage';
 import {Container} from '.././component/index';
 import PostCards from '../Forms/PostCards';
 import Loading from '../component/Loading';
+import {useSelector } from 'react-redux';
 
 
 function HomePage() {
     const [posts, setPosts] = useState([]);
+    const authStatus = useSelector( (state) => state.auth.status);
 
     useEffect( () => {
         storeService.getPosts([])
@@ -17,8 +19,8 @@ function HomePage() {
         })
     },[])
 
-    if(posts.length === 0){
-        return  <Loading /> && (
+   if(posts.length === 0 && !authStatus){
+        return (
          
             <div className='w-full text-center flex justify-center  min-h-screen'>
                 <Container>

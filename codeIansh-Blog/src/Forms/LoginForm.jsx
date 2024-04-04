@@ -32,9 +32,6 @@ function LoginForm() {
         }
     };
 
-    if(!login){
-        return <Loading />;
-    }
 
     return (
         <div className=' flex items-center justify-center w-full'>
@@ -79,6 +76,7 @@ function LoginForm() {
                         <Button
                             type='submit'
                             className=' w-full shadow-2xl text-black bg-slate-500 rounded-full hover:bg-gray-400'
+                            
                         >
                             sign in
                         </Button>

@@ -42,7 +42,7 @@ export default function PostPage() {
                     <img
                         src={storeService.getfilePreview(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl w-full h-64 bg-cover"
+                        className="rounded-3xl w-[1100px] h-[550px]"
                     />
 
                     {isAuthor && (
