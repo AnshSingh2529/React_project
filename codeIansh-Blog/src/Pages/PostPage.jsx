@@ -4,6 +4,7 @@ import storeService from '../appwrite/storage';
 import { Button, Container } from '.././component/index';
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import Loading from "../component/Loading";
 
 export default function PostPage() {
     const [post, setPost] = useState(null);
@@ -12,16 +13,16 @@ export default function PostPage() {
 
     const userData = useSelector((state) => state.auth.userData);
 
-    const isAuthor = post && userData ? post.userId === userData.$id : false;
+    const isAuthor = post && userData ? post.userID === userData.$id : false;
 
     useEffect(() => {
         if (slug) {
             storeService.getPost(slug)
             .then((post) => {
                 if (post) setPost(post);
-                else navigate("/codeIansh/");
+                else navigate("/");
             });
-        } else navigate("/codeIansh/");
+        } else navigate("/");
     }, [slug, navigate]);
 
     const deletePost = () => {
@@ -29,7 +30,7 @@ export default function PostPage() {
         .then((status) => {
             if (status) {
                 storeService.deleteFile(post.featuredImage);
-                navigate("/codeIansh/");
+                navigate("/");
             }
         });
     };
@@ -41,12 +42,12 @@ export default function PostPage() {
                     <img
                         src={storeService.getfilePreview(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl"
+                        className="rounded-xl w-full h-64 bg-cover"
                     />
 
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
-                            <Link to={`/codeIansh/edit-post/${post.$id}`}>
+                            <Link to={`/edit-post/${post.$id}`}>
                                 <Button bgColor="bg-green-500" className="mr-3">
                                     Edit
                                 </Button>
@@ -65,5 +66,5 @@ export default function PostPage() {
                     </div>
             </Container>
         </div>
-    ) : null;
+    ) : <Loading />;
 }

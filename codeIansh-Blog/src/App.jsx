@@ -4,6 +4,7 @@ import authService from './appwrite/auth';
 import {login, logout} from './store/authSlice';
 import {Header, Footer} from './component/index';
 import {Outlet} from 'react-router-dom';
+import Loading from "./component/Loading";
 
 
 
@@ -50,7 +51,7 @@ function App() {
     <Footer />
     </div>
    </>
-   : <h1>Loading...</h1>;
+   : <Loading />;
 }
 
 export default App

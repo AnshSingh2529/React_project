@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import storeService from '../appwrite/storage';
 import PostCards from '../Forms/PostCards';
 import {Container} from '.././component/index';
+import Loading from '../component/Loading';
 
 function AllPosts() {
 
@@ -15,6 +16,10 @@ function AllPosts() {
       }
     })
   },[])
+
+  if(posts.length === 0){
+    return <Loading />
+  }
 
   return (
     <div className='w-full py-8'>

@@ -1,7 +1,9 @@
-import React,{useEffect, useState} from 'react';
+import React,{ useEffect, useState} from 'react';
 import storeService from '../appwrite/storage';
 import {Container} from '.././component/index';
 import PostCards from '../Forms/PostCards';
+import Loading from '../component/Loading';
+
 
 
 function HomePage() {
@@ -22,7 +24,7 @@ function HomePage() {
                 <Container>
                     <div className='flex flex-wrap'>
                         <span className=' inline-block  p-2'>
-                            <h1 className='text-4xl font-bold hover:bg-black/40'>Login to read Posts</h1>
+                            <h1 className='text-4xl font-bold hover:bg-black/40'><Loading /></h1>
                         </span>
                     </div>
                 </Container>

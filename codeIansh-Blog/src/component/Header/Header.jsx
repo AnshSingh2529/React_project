@@ -14,31 +14,31 @@ function Header() {
   const navItems = [
     {
       name: 'Home',
-      slug: '/codeIansh/',
+      slug: '/',
       active: true
 
     },
     {
       name:'Login',
-      slug:'/codeIansh/login',
+      slug:'/login',
       active: !authStatus
 
     },
     {
       name: 'SignUp',
-      slug:'/codeIansh/signup',
+      slug:'/signup',
       active: !authStatus
 
     },
     {
       name:'All Posts',
-      slug: '/codeIansh/all-posts',
+      slug: '/all-posts',
       active: authStatus
 
     },
     {
       name:'Add Posts',
-      slug:'/codeIansh/add-posts',
+      slug:'/add-posts',
       active: authStatus
 
     },

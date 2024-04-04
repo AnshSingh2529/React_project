@@ -40,7 +40,7 @@ function PostForm({post}) {
         );
 
         if(dbPost){
-          navigate(`/codeIansh/post/${dbPost.$id}`)
+          navigate(`/post/${dbPost.$id}`)
         }
       } else{
         const file = await storeService.uploadFile(data.image[0]);
@@ -51,11 +51,11 @@ function PostForm({post}) {
 
          const dbPost =  await storeService.createPost({
             ...data,
-            userId: userData.$id,
+            userID: userData.$id
           })
 
           if(dbPost){
-            navigate(`/codeIansh/post/${dbPost.$id}`);
+            navigate(`/post/${dbPost.$id}`);
           }
         }
       }
