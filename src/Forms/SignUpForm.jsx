@@ -24,6 +24,7 @@ function SignUpForm() {
                     dispatch(login(userData))
                 }
                 navigate("/login")
+                
             }
         } catch (error) {
             setError(error.message)
