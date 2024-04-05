@@ -51,7 +51,7 @@ function PostForm({post}) {
 
          const dbPost =  await storeService.createPost({
             ...data,
-            userID: userData.$id
+            userID: userData.$id 
           })
 
           if(dbPost){
@@ -84,12 +84,12 @@ function PostForm({post}) {
           setValue('slug', slugTransform(value.title), {shouldValidate: true})  ;
         }
       })
-        return () => subscribtion.unsubscribe() ;
+        return (() => subscribtion.unsubscribe()) ;
 
     }, [watch, setValue, slugTransform])
 
   return (
-    <form onSubmit={handleSubmit(submit)} className='flex flex-wrap'>
+    <form onSubmit={handleSubmit(submit)} className='flex flex-wrap justify-center items-center'>
 
       <div className='w-2/3 px-2'>
         <Input 

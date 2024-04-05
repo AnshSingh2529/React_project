@@ -22,8 +22,8 @@ function SignUpForm() {
                 const userData = await authService.getCurrentUser()
                 if (userData) {
                     dispatch(login(userData))
-                    navigate("/login")
                 }
+                navigate("/login")
             }
         } catch (error) {
             setError(error.message)
